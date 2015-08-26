@@ -1,0 +1,42 @@
+#main {
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 2em 0;
+}
+
+.main-articles {
+	flex: 8 1 auto;
+	border-right: 1px solid black;
+}
+
+.main-articles-post {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+	align-content: stretch;
+
+	border: 1px solid lightgray;
+	padding: 10px;
+	margin: 0 10% 2em 10%;
+}
+
+.main-articles-post:last-child {
+	margin-bottom: 0;
+}
+
+.main-aside {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+
+	flex: 2 1 auto;
+}
+
+.main-aside-banner {
+	margin: 0 10% 2em 10%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

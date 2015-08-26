@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" media="(min-width:768px)" href="css/screen_large.css">
+		<link rel="stylesheet" media="(max-width:768px)" href="css/screen_medium.css">
+		<link rel="stylesheet" media="(max-width:480px)" href="css/screen_small.css">
+		<link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<!-- header -->
+		<header id="header">
+			<h1 class="header-title">Header</h1>
+			<section class="header-nav">
+				<div class="header-nav-login"><a class="button">LOG IN</a></div>
+				<div id="headerNavBar" class="header-nav-bar button"><span class="fa fa-bars"></span></div>
+			</section>
+		</header>
+
+		<!-- nav -->
+		<nav id="nav">
+			<ul class="nav-menu no-style-list">
+				<li class="nav-menu-item"><a class="button">Item1</a></li>
+				<li class="nav-menu-item"><a class="button">Item2</a></li>
+				<li class="nav-menu-item"><a class="button">Item3</a></li>
+				<li class="nav-menu-item"><a class="button">Item4</a></li>
+			</ul>
+			<div class="nav-menu-item dropdown">
+				<a class="button"><span class="fa fa-arrow-down"></span></a>
+				<ul class="dropdown-menu no-style-list">
+					<li><a class="button">Item5</a></li>
+					<li><a class="button">Item6</a></li>
+					<li><a class="button">Item7</a></li>
+					<li><a class="button">Item8</a></li>
+					<li><a class="button">Item9</a></li>
+				</ul>
+			</div>
+			<ul class="nav-menu nav-menu-ext no-style-list">
+				<li class="nav-menu-item"><a class="button">Item5</a></li>
+				<li class="nav-menu-item"><a class="button">Item6</a></li>
+				<li class="nav-menu-item"><a class="button">Item7</a></li>
+				<li class="nav-menu-item"><a class="button">Item8</a></li>
+				<li class="nav-menu-item"><a class="button">Item9</a></li>
+			</ul>
+		</nav>
+
+		<!-- main -->
+		<main id="main">
+			<!-- Article area -->
+			<section class="main-articles">
+				<article class="main-articles-post">
+					<h1>Header1</h1>
+					<img src="images/pic1.JPG" class="img-article">
+					<a class="button">read on</a>
+				</article>
+
+				<article class="main-articles-post">
+					<h1>Header2</h1>
+					<img src="images/pic2.JPG" class="img-article">
+					<a class="button">read on</a>
+				</article>
+
+				<article class="main-articles-post">
+					<h1>Header3</h1>
+					<img src="images/pic3.JPG" class="img-article">
+					<a class="button">read on</a>
+				</article>
+			</section>
+
+			<!-- banners -->
+			<aside class="main-aside">
+				<div class="main-aside-banner"><img src="images/banner1.JPG" class="img-banner"></div>
+				<div class="main-aside-banner"><img src="images/banner2.JPG" class="img-banner"></div>
+				<div class="main-aside-banner"><img src="images/banner3.JPG" class="img-banner"></div>
+			</aside>
+		</main>
+
+		<!-- footer -->
+		<footer id="footer">
+			<section class="footer-category">
+				<ul class="no-style-list">
+					<li>Category1</li>
+					<li><a class="button">Item1</a></li>
+					<li><a class="button">Item2</a></li>
+					<li><a class="button">Item3</a></li>
+					<li><a class="button">Item4</a></li>
+				</ul>
+			</section>
+
+			<section class="footer-category">
+				<ul class="no-style-list">
+					<li>Category2</li>
+					<li><a class="button">Item1</a></li>
+					<li><a class="button">Item2</a></li>
+					<li><a class="button">Item3</a></li>
+					<li><a class="button">Item4</a></li>
+				</ul>
+			</section>
+
+			<section class="footer-category">
+				<ul class="no-style-list">
+					<li>Category3</li>
+					<li><a class="button">Item1</a></li>
+					<li><a class="button">Item2</a></li>
+					<li><a class="button">Item3</a></li>
+					<li><a class="button">Item4</a></li>
+				</ul>
+			</section>
+		</footer>
+
+		<!-- Aside -->
+		<aside id="aside">
+			<ul id="aside-nav" class="no-style-list">
+				<li><a id="closeMeButton" class="button">Close Me</a></li>
+				<li><a class="button">Log In</a></li>
+				<li><a class="button">Item1</a></li>
+				<li><a class="button">Item2</a></li>
+				<li><a class="button">Item3</a></li>
+				<li><a class="button">Item4</a></li>
+				<li>
+					<a id="categoryButton1" class="button">Category1</a>
+					<ul class="no-style-list" data-fold="true">
+						<li><a class="button">Item1</a></li>
+						<li><a class="button">Item2</a></li>
+						<li><a class="button">Item3</a></li>
+					</ul>
+				</li>
+				<li>
+					<a id="categoryButton2" class="button">Category2</a>
+					<ul class="no-style-list" data-fold="true">
+						<li><a class="button">Item1</a></li>
+						<li><a class="button">Item2</a></li>
+						<li><a class="button">Item3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+
+		<script>
+			(function(){
+				var headerNavBar = document.getElementById("headerNavBar");
+				var closeMeButton = document.getElementById("closeMeButton");
+				var aside = document.getElementById("aside");
+				var categoryButton1 = document.getElementById("categoryButton1");
+				var categoryButton2 = document.getElementById("categoryButton2");
+				var nav = document.getElementById("nav");
+
+				headerNavBar.addEventListener("click", showAside, false);
+				closeMeButton.addEventListener("click", hideAside, false);
+				categoryButton1.addEventListener("click", toggleCategory, false);
+				categoryButton2.addEventListener("click", toggleCategory, false);
+				this.addEventListener("scroll", stickyNav, false);
+
+				function showAside(event){
+					event.stopPropagation();
+					aside.style.visibility = "visible";
+				}
+
+				function hideAside(event){
+					event.stopPropagation();
+					aside.style.visibility = "hidden";
+				}
+
+				function toggleCategory(event){
+					event.stopPropagation();
+					if(event.target.id === "categoryButton1" || event.target.id === "categoryButton2"){
+						var query = "#" + event.target.id + " + ul";
+						var dropdown = document.querySelector(query);
+						var isFolded = (dropdown.getAttribute("data-fold") === "true");
+						if(isFolded){
+							dropdown.style.display = "flex";
+						}
+						else {
+							dropdown.style.display = "none";
+						}
+						isFolded = !isFolded;
+						dropdown.setAttribute("data-fold", isFolded);
+					}
+				}
+
+				var navTop = nav.offsetTop;
+				function stickyNav(event){
+					var currentViewTop = this.scrollY;
+
+					if(currentViewTop > navTop){
+						nav.style.position = "fixed";
+						nav.style.top = "0";
+
+					}
+					else{
+						nav.style.position = "static";
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>
