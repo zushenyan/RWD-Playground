@@ -1,0 +1,15 @@
+@media (max-width:480px) {
+	#headerNavLogin { display: none; }
+
+	#headerNavBar { display: block; }
+
+	#nav { display: none; }
+
+	#main {
+		border: 0;
+		section { border: 0; }
+		aside { display: none; }
+	}
+
+	#footer { display: none; }
+}

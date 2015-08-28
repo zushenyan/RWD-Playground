@@ -1,0 +1,281 @@
+/*
+	Misc
+*/
+body {
+  font-family: Helvetica;
+  background-color: white;
+  height: 100%; }
+
+.button {
+  display: inline-block;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  text-align: center; }
+  .button:hover {
+    cursor: pointer;
+    background-color: #eeeeee; }
+  .button:active {
+    color: red; }
+
+.no-style-list, #nav ul, #nav #dropdown ul, #footer section ul, #aside ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+.img-article {
+  max-width: 480px; }
+
+.img-banner {
+  max-width: 128px;
+  border: 1px solid black; }
+
+/*
+	Header
+*/
+#header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 2%;
+  height: 150px;
+  background-color: white; }
+  #header h1 {
+    font-size: 5em;
+    flex: 8 1 auto;
+    margin: 0; }
+  #header nav {
+    flex: 2 1 auto;
+    font-size: 1.5em;
+    text-align: center; }
+
+#headerNavBar {
+  display: none;
+  padding: 6px; }
+
+/*
+	Navigator
+*/
+#nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color: white;
+  width: 100%;
+  margin: 0 auto; }
+  #nav .button {
+    font-size: 1.5em;
+    padding: 6px; }
+  #nav ul {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 1em 0 1em 0; }
+    #nav ul li {
+      border-right: 1px solid black;
+      padding: 0 4px; }
+      #nav ul li:last-child {
+        border: 0; }
+    #nav ul:last-child {
+      border: 0; }
+  #nav #dropdown {
+    display: none; }
+    #nav #dropdown ul {
+      display: none;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+      position: absolute; }
+      #nav #dropdown ul li {
+        border: none;
+        padding: 0; }
+
+/*
+	Main
+	Empty content in curly braces means that you must define diffrent layouts for different screen sizes.
+*/
+#main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+  background-color: white;
+  margin: 2em 0; }
+  #main section {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+    flex: 8 1 auto;
+    border-right: 1px solid black; }
+    #main section article {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      align-content: stretch;
+      align-items: stretch;
+      border: 1px solid lightgray;
+      padding: 10px;
+      margin: 0 10% 2em 10%; }
+      #main section article:last-child {
+        margin-bottom: 0; }
+      #main section article h1, #main section article img, #main section article a {
+        margin: 0;
+        padding: 0; }
+      #main section article h1 {
+        align-self: flex-start; }
+      #main section article img {
+        align-self: center;
+        max-width: 480px; }
+      #main section article .button {
+        align-self: flex-end;
+        text-align: right;
+        font-size: 1.5em; }
+  #main aside {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    flex: 2 1 auto; }
+    #main aside div {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      margin: 0 auto 2em auto; }
+
+/*
+	Footer
+*/
+#footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: stretch;
+  border-top: 1px black solid; }
+  #footer .button {
+    padding: 5px 0;
+    width: 5em; }
+  #footer section {
+    margin: 1.5em 0;
+    flex: 1 1 auto;
+    text-align: center; }
+    #footer section ul li:first-child {
+      font-weight: bold; }
+    #footer section:first-child {
+      margin-left: 10%; }
+    #footer section:last-child {
+      margin-right: 10%;
+      border-right: 0; }
+
+#aside {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: 0;
+  width: 201px;
+  height: 100%;
+  border-left: 1px solid black;
+  background-color: white;
+  z-index: 9999; }
+  #aside ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    position: absolute; }
+    #aside ul ul {
+      display: none;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+      position: relative; }
+    #aside ul .button {
+      border-bottom: 1px solid black;
+      text-align: center;
+      width: 190px;
+      font-size: 1.5em;
+      padding: 5px; }
+    #aside ul li:last-child {
+      border: 0; }
+
+@media (max-width: 768px) {
+  #nav #dropdown {
+    display: block;
+    border: none; }
+    #nav #dropdown:hover ul {
+      display: flex; }
+  #nav #navMenuExt {
+    display: none; }
+
+  #main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    margin: 0;
+    width: 100%; }
+    #main section {
+      flex: 0 1 auto;
+      border-right: 0;
+      border-bottom: 1px solid black; }
+      #main section article:first-child {
+        margin-top: 2em; }
+      #main section article:last-child {
+        margin-bottom: 2em; }
+    #main aside {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-content: center;
+      align-items: stretch;
+      flex: 0 1 auto; }
+      #main aside div {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: center;
+        margin: 2em 0; } }
+@media (max-width: 480px) {
+  #headerNavLogin {
+    display: none; }
+
+  #headerNavBar {
+    display: block; }
+
+  #nav {
+    display: none; }
+
+  #main {
+    border: 0; }
+    #main section {
+      border: 0; }
+    #main aside {
+      display: none; }
+
+  #footer {
+    display: none; } }
+
+/*# sourceMappingURL=style2.0.css.map */
