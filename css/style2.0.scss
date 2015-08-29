@@ -59,12 +59,12 @@ img {
 	height: 150px;
 	background-color: white;
 	h1 {
+		@include flex(8, 1, auto);
 		font-size: 5em;
-		flex: 8 1 auto;
 		margin: 0;
 	}
 	nav {
-		flex: 2 1 auto;
+		@include flex(2, 1, auto);
 		font-size: 1.5em;
 		text-align: center;
 	}
@@ -110,9 +110,12 @@ img {
 		display: none;
 
 		ul {
-			@include display-flexbox(none, column, nowrap, flex-start, flex-start, flex-start);
+			@include display-flexbox(flex, column, nowrap, flex-start, flex-start, flex-start);
 			@extend .no-style-list;
 			position: absolute;
+
+			&.show { visibility: visible; }
+			&.hide { visibility: hidden ;}
 
 			li {
 				border: none;
@@ -133,7 +136,7 @@ img {
 
 	section {
 		@include display-flexbox(flex, column, nowrap, center, center, stretch);
-		flex: 8 1 auto;
+		@include flex(8, 1, auto);
 		border-right: 1px solid black;
 
 		article {
@@ -148,13 +151,15 @@ img {
 				padding: 0;
 			}
 
-			h1 { align-self: flex-start; }
+			h1 {
+				@include align-self(flex-start);
+			}
 			img {
-				align-self: center;
+				@include align-self(center);
 				max-width: 480px;
 			}
 			.button {
-				align-self: flex-end;
+				@include align-self(flex-end);
 				text-align: right;
 				font-size: 1.5em;
 			}
@@ -163,7 +168,7 @@ img {
 
 	aside {
 		@include display-flexbox(flex, column, nowrap, flex-start, stretch);
-		flex: 2 1 auto;
+		@include flex(2, 1, auto);
 
 		div {
 			@include display-flexbox(flex, row, nowrap, center, center, center);
@@ -185,8 +190,8 @@ img {
 	}
 
 	section {
+		@include flex(1, 1, auto);
 		margin: 1.5em 0;
-		flex: 1 1 auto;
 		text-align: center;
 
 		ul { @extend .no-style-list; }
@@ -200,23 +205,36 @@ img {
 }
 
 #aside {
+	$width: 201px;
+
 	position: fixed;
-	visibility: hidden;
 	top: 0;
 	right: 0;
-	width: 201px;
+	width: $width;
 	height: 100%;
 	border-left: 1px solid black;
 	background-color: white;
-	z-index: 9999;
+	transition: right 0.5s;
 
 	ul {
 		@include display-flexbox(flex, column, nowrap, flex-start, center, flex-start);
 		@extend .no-style-list;
 		position: absolute;
 		ul {
-			@include display-flexbox(none, column, nowrap, flex-start, flex-start, flex-start);
+			@include display-flexbox(flex, column, nowrap, flex-start, flex-start, flex-start);
 			position: relative;
+			overflow: hidden;
+			transition: all 1s;
+
+			&.show {
+				// workaround here, to get the real height of the element, use js instead.
+				max-height: 150px;
+				visibility: visible;
+			}
+			&.hide {
+				max-height: 0;
+				visibility: hidden;
+			}
 		}
 		.button {
 			border-bottom: 1px solid black;
@@ -229,6 +247,9 @@ img {
 			border: 0;
 		}
 	}
+
+	&.show { right: 0; }
+	&.hide { right: -$width - 1px; }
 }
 
 @import "screen_medium";
