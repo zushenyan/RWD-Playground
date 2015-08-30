@@ -24,11 +24,8 @@ body {
   margin: 0; }
 
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto; }
-
-.img-article {
-  max-width: 480px; }
 
 .img-banner {
   max-width: 128px;
@@ -50,7 +47,6 @@ img {
   align-items: center;
   border-bottom: 1px solid black;
   padding: 2%;
-  height: 150px;
   background-color: white; }
   #header h1 {
     -webkit-flex: 8 1 auto;
@@ -131,7 +127,6 @@ img {
 
 /*
 	Main
-	Empty content in curly braces means that you must define diffrent layouts for different screen sizes.
 */
 #main {
   display: -webkit-flex;
@@ -163,12 +158,12 @@ img {
     #main section article {
       display: -webkit-flex;
       -webkit-flex-flow: column nowrap;
-      -webkit-justify-content: space-around;
+      -webkit-justify-content: flex-start;
       -webkit-align-content: stretch;
       -webkit-align-items: stretch;
       display: flex;
       flex-flow: column nowrap;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-content: stretch;
       align-items: stretch;
       border: 1px solid lightgray;
@@ -176,21 +171,25 @@ img {
       margin: 0 10% 2em 10%; }
       #main section article:last-child {
         margin-bottom: 0; }
-      #main section article h1, #main section article img, #main section article a {
+      #main section article header, #main section article figure, #main section article footer {
         margin: 0;
         padding: 0; }
-      #main section article h1 {
-        -webkit-align-self: flex-start;
-        align-self: flex-start; }
-      #main section article img {
-        -webkit-align-self: center;
-        align-self: center;
-        max-width: 480px; }
-      #main section article .button {
-        -webkit-align-self: flex-end;
-        align-self: flex-end;
-        text-align: right;
-        font-size: 1.5em; }
+      #main section article header {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto; }
+        #main section article header h1 {
+          margin: 0;
+          padding: 0; }
+      #main section article figure {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        text-align: center; }
+      #main section article footer {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        text-align: right; }
+        #main section article footer .button {
+          font-size: 1.5em; }
   #main aside {
     display: -webkit-flex;
     -webkit-flex-flow: column nowrap;
@@ -320,9 +319,9 @@ img {
     justify-content: flex-start;
     align-content: stretch;
     align-items: stretch;
-    margin: 0;
-    width: 100%; }
+    margin: 0; }
     #main section {
+      -webkit-flex: 0 1 auto;
       flex: 0 1 auto;
       border-right: 0;
       border-bottom: 1px solid black; }
@@ -341,6 +340,7 @@ img {
       justify-content: space-around;
       align-content: center;
       align-items: stretch;
+      -webkit-flex: 0 1 auto;
       flex: 0 1 auto; }
       #main aside div {
         display: -webkit-flex;
@@ -367,8 +367,12 @@ img {
   #main {
     border: 0; }
     #main section {
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
       border: 0; }
     #main aside {
+      -webkit-flex: 0 1 auto;
+      flex: 0 1 auto;
       display: none; }
 
   #footer {

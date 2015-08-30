@@ -36,12 +36,8 @@ body {
 }
 
 img {
-	width: 100%;
+	max-width: 100%;
 	height: auto;
-}
-
-.img-article {
-	max-width: 480px;
 }
 
 .img-banner {
@@ -56,7 +52,6 @@ img {
 	@include display-flexbox(flex, row, nowrap, flex-start, space-around, center);
 	border-bottom: 1px solid black;
 	padding: 2%;
-	height: 150px;
 	background-color: white;
 	h1 {
 		@include flex(8, 1, auto);
@@ -127,7 +122,6 @@ img {
 
 /*
 	Main
-	Empty content in curly braces means that you must define diffrent layouts for different screen sizes.
 */
 #main {
 	@include display-flexbox(flex, row, nowrap);
@@ -140,28 +134,38 @@ img {
 		border-right: 1px solid black;
 
 		article {
-			@include display-flexbox(flex, column, nowrap, space-around, stretch);
+			@include display-flexbox(flex, column, nowrap, flex-start, stretch);
 			border: 1px solid lightgray;
 			padding: 10px;
 			margin: 0 10% 2em 10%;
+			// max-height:600px;
 
 			&:last-child { margin-bottom: 0 }
-			h1, img, a {
+
+			header, figure, footer{
 				margin: 0;
 				padding: 0;
 			}
 
-			h1 {
-				@include align-self(flex-start);
+			header {
+				@include flex(1, 1, auto);
+				h1 {
+					margin: 0;
+					padding: 0;
+				}
 			}
-			img {
-				@include align-self(center);
-				max-width: 480px;
+			figure {
+				@include flex(1, 1, auto);
+				// @include align-self(center);
+				text-align: center;
 			}
-			.button {
-				@include align-self(flex-end);
+			footer {
+				@include flex(1, 1, auto);
 				text-align: right;
-				font-size: 1.5em;
+
+				.button {
+					font-size: 1.5em;
+				}
 			}
 		}
 	}
@@ -227,8 +231,7 @@ img {
 			transition: all 1s;
 
 			&.show {
-				// workaround here, to get the real height of the element, use js instead.
-				max-height: 150px;
+				max-height: 150px; // workaround here, to get the real height of the element, use js instead.
 				visibility: visible;
 			}
 			&.hide {

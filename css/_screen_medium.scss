@@ -13,10 +13,9 @@
 	#main {
 		@include display-flexbox(flex, column, nowrap);
 		margin: 0;
-		width: 100%;
 
 		section {
-			flex: 0 1 auto;
+			@include flex(0, 1, auto);
 			border-right: 0;
 			border-bottom: 1px solid black;
 
@@ -26,7 +25,7 @@
 
 		aside {
 			@include display-flexbox(flex, row, nowrap, space-around, center);
-			flex: 0 1 auto;
+			@include flex(0, 1, auto);
 
 			div{
 				@include display-flexbox(flex, row, nowrap, center, flex-start, center);
