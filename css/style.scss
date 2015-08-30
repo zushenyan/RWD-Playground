@@ -1,0 +1,259 @@
+@import "setting";
+
+/*
+	Misc
+*/
+body {
+	font-family: Helvetica;
+	background-color: white;
+	height: 100%;
+}
+
+.button {
+	$btn-color: black;
+	$btn-bg-color: white;
+	$btn-hover-bg-color: #eeeeee;
+	$btn-active-color: red;
+
+	display: inline-block;
+	color: $btn-color;
+	background-color: $btn-bg-color;
+	text-decoration: none;
+	text-align: center;
+	&:hover {
+		cursor: pointer;
+		background-color: $btn-hover-bg-color;
+	}
+	&:active {
+		color: $btn-active-color;
+	}
+}
+
+.no-style-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.img-banner {
+	max-width: 128px;
+	border: 1px solid black;
+}
+
+/*
+	Header
+*/
+#header {
+	@include display-flexbox(flex, row, nowrap, flex-start, space-around, center);
+	border-bottom: 1px solid black;
+	padding: 2%;
+	background-color: white;
+	h1 {
+		@include flex(8, 1, auto);
+		font-size: 5em;
+		margin: 0;
+	}
+	nav {
+		@include flex(2, 1, auto);
+		font-size: 1.5em;
+		text-align: center;
+	}
+}
+
+#headerNavBar {
+	display: none;
+	padding: 6px;
+}
+
+/*
+	Navigator
+*/
+#nav {
+	@include display-flexbox(flex, row, wrap, center, center, center);
+	border-bottom: 1px solid black;
+	background-color: white;
+	width: 100%;
+	margin: 0 auto;
+
+	.button {
+		font-size: 1.5em;
+		padding: 6px;
+	}
+
+	ul {
+		@include display-flexbox(inline-flex, row, wrap, center, center, center);
+		@extend .no-style-list;
+		margin: 1em 0 1em 0;
+
+		li {
+			border-right: 1px solid black;
+			padding: 0 4px;
+
+			&:last-child { border: 0; }
+		}
+
+		&:last-child { border: 0; }
+	}
+
+	#navMenuExt { }
+	#dropdown {
+		display: none;
+
+		ul {
+			@include display-flexbox(flex, column, nowrap, flex-start, flex-start, flex-start);
+			@extend .no-style-list;
+			position: absolute;
+
+			&.show { visibility: visible; }
+			&.hide { visibility: hidden ;}
+
+			li {
+				border: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/*
+	Main
+*/
+#main {
+	@include display-flexbox(flex, row, nowrap);
+	background-color: white;
+	margin: 2em 0;
+
+	section {
+		@include display-flexbox(flex, column, nowrap, center, center, stretch);
+		@include flex(8, 1, auto);
+		border-right: 1px solid black;
+
+		article {
+			@include display-flexbox(flex, column, nowrap, flex-start, stretch);
+			border: 1px solid lightgray;
+			padding: 10px;
+			margin: 0 10% 2em 10%;
+			// max-height:600px;
+
+			&:last-child { margin-bottom: 0 }
+
+			header, figure, footer{
+				margin: 0;
+				padding: 0;
+			}
+
+			header {
+				@include flex(1, 1, auto);
+				h1 {
+					margin: 0;
+					padding: 0;
+				}
+			}
+			figure {
+				@include flex(1, 1, auto);
+				// @include align-self(center);
+				text-align: center;
+			}
+			footer {
+				@include flex(1, 1, auto);
+				text-align: right;
+
+				.button {
+					font-size: 1.5em;
+				}
+			}
+		}
+	}
+
+	aside {
+		@include display-flexbox(flex, column, nowrap, flex-start, stretch);
+		@include flex(2, 1, auto);
+
+		div {
+			@include display-flexbox(flex, row, nowrap, center, center, center);
+			margin: 0 auto 2em auto;
+		}
+	}
+}
+
+/*
+	Footer
+*/
+#footer {
+	@include display-flexbox(flex, row, nowrap, center);
+	border-top: 1px black solid;
+
+	.button {
+		padding: 5px 0;
+		width: 5em;
+	}
+
+	section {
+		@include flex(1, 1, auto);
+		margin: 1.5em 0;
+		text-align: center;
+
+		ul { @extend .no-style-list; }
+		ul li:first-child { font-weight: bold; }
+		&:first-child { margin-left: 10%; }
+		&:last-child {
+			margin-right: 10%;
+			border-right: 0;
+		}
+	}
+}
+
+#aside {
+	$width: 201px;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: $width;
+	height: 100%;
+	border-left: 1px solid black;
+	background-color: white;
+	transition: right 0.5s;
+
+	ul {
+		@include display-flexbox(flex, column, nowrap, flex-start, center, flex-start);
+		@extend .no-style-list;
+		position: absolute;
+		ul {
+			@include display-flexbox(flex, column, nowrap, flex-start, flex-start, flex-start);
+			position: relative;
+			overflow: hidden;
+			transition: all 1s;
+
+			&.show {
+				max-height: 150px; // workaround here, to get the real height of the element, use js instead.
+				visibility: visible;
+			}
+			&.hide {
+				max-height: 0;
+				visibility: hidden;
+			}
+		}
+		.button {
+			border-bottom: 1px solid black;
+			text-align: center;
+			width: 190px;
+			font-size: 1.5em;
+			padding: 5px;
+		}
+		li:last-child {
+			border: 0;
+		}
+	}
+
+	&.show { right: 0; }
+	&.hide { right: -$width - 1px; }
+}
+
+@import "screen_medium";
+@import "screen_small";

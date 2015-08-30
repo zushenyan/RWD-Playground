@@ -1,0 +1,21 @@
+@media (max-width:480px) {
+	#headerNavLogin { display: none; }
+
+	#headerNavBar { display: block; }
+
+	#nav { display: none; }
+
+	#main {
+		border: 0;
+		section {
+			@include flex(1, 1, auto);
+			border: 0;
+		}
+		aside {
+			@include flex(0, 1, auto);
+			display: none;
+		}
+	}
+
+	#footer { display: none; }
+}

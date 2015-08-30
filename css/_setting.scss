@@ -1,0 +1,31 @@
+// mixins
+@mixin display-flexbox(
+	$display: flex,
+	$flow: row,
+	$wrap: nowrap,
+	$justify-content: flex-start,
+	$align-content: stretch,
+	$align-items: stretch) {
+	// webkit
+	display: -webkit-#{$display};
+	-webkit-flex-flow: $flow $wrap;
+	-webkit-justify-content: $justify-content;
+	-webkit-align-content: $align-content;
+	-webkit-align-items: $align-items;
+
+	display: $display;
+	flex-flow: $flow $wrap;
+	justify-content: $justify-content;
+	align-content: $align-content;
+	align-items: $align-items;
+}
+
+@mixin flex($grow: 0, $shrink: 1, $basis: auto) {
+	-webkit-flex: $grow $shrink $basis;
+	flex: $grow $shrink $basis;
+}
+
+@mixin align-self($align-self){
+	-webkit-align-self: $align-self;
+	align-self: $align-self;
+}

@@ -1,0 +1,36 @@
+@media (max-width:768px) {
+	#nav {
+		#dropdown {
+			display: block;
+			border: none;
+		}
+
+		#navMenuExt {
+			display: none;
+		}
+	}
+
+	#main {
+		@include display-flexbox(flex, column, nowrap);
+		margin: 0;
+
+		section {
+			@include flex(0, 1, auto);
+			border-right: 0;
+			border-bottom: 1px solid black;
+
+			article:first-child { margin-top: 2em; }
+			article:last-child { margin-bottom: 2em; }
+		}
+
+		aside {
+			@include display-flexbox(flex, row, nowrap, space-around, center);
+			@include flex(0, 1, auto);
+
+			div{
+				@include display-flexbox(flex, row, nowrap, center, flex-start, center);
+				margin: 2em 0;
+			}
+		}
+	}
+}
